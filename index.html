@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendario de Partidos</title>
-    <style>
-        body { background: #fff8f0; font-family: Arial, sans-serif; padding: 40px; max-width: 900px; margin: auto; }
-        h1 { color: #d62828; text-align: center; }
-        .partido {
-            display: block; background: #fcbf49; margin: 10px 0; padding: 10px;
-            border-radius: 5px; text-decoration: none; color: #000; font-weight: bold;
-        }
-        .partido:hover { background: #f77f00; color: white; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario de Partidos</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #fff8f0; color: #333; padding: 40px; margin: auto; max-width: 1000px; }
+    h1 { text-align: center; color: #d62828; }
+    .dia { font-weight: bold; background: #fcbf49; padding: 5px 10px; border-radius: 4px; display: inline-block; margin: 10px 5px; cursor: pointer; }
+    .partidos { margin-top: 20px; }
+    .partido { background: #ffe8c2; padding: 10px; margin: 5px 0; border-radius: 4px; }
+  </style>
 </head>
 <body>
-<h1>🗓️ Calendario de Partidos</h1>
-<a href="15022025-grupo-alega-cantabria-vs-amics-castello.html" class="partido"><strong>15/02/2025 19:00</strong> – GRUPO ALEGA CANTABRIA vs AMICS CASTELLÓ</a>
-<a href="22032025-spar-girona-vs-hozono-global-jairis.html" class="partido"><strong>22/03/2025 14:30</strong> – SPAR GIRONA vs HOZONO GLOBAL JAIRIS</a>
-<a href="22032025-perfumerias-avenida-vs-casademont-zaragoza.html" class="partido"><strong>22/03/2025 17:00</strong> – PERFUMERIAS AVENIDA vs CASADEMONT ZARAGOZA</a>
-<a href="21032025-perfumerias-avenida-vs-movistar-estudiantes.html" class="partido"><strong>21/03/2025 17:30</strong> – PERFUMERIAS AVENIDA vs MOVISTAR ESTUDIANTES</a>
-<a href="20032025-spar-girona-vs-lointek-gernika-bizkaia.html" class="partido"><strong>20/03/2025 18:30</strong> – SPAR GIRONA vs LOINTEK GERNIKA BIZKAIA</a>
-<a href="23032025-hozono-global-jairis-vs-perfumerias-avenida.html" class="partido"><strong>23/03/2025 16:00</strong> – HOZONO GLOBAL JAIRIS vs PERFUMERIAS AVENIDA</a>
-<a href="20032025-valencia-b.c.-vs-hozono-global-jairis.html" class="partido"><strong>20/03/2025 21:00</strong> – VALENCIA B.C. vs HOZONO GLOBAL JAIRIS</a>
-<a href="21032025-casademont-zaragoza-vs-spar-gran-canaria.html" class="partido"><strong>21/03/2025 20:00</strong> – CASADEMONT ZARAGOZA vs SPAR GRAN CANARIA</a>
-</body></html>
+  <h1>📅 Calendario Interactivo de Partidos</h1>
+  <div id="dias"></div>
+  <div class="partidos" id="lista-partidos"></div>
+  <script>
+    const partidos = [];
+  </script>
+</body>
+</html>
