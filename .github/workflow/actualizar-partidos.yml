@@ -1,0 +1,55 @@
+name: Actualizar partidos
+
+on:
+  push:
+    paths:
+      - '*.json'  # Activar el flujo cuando se suba un JSON
+
+jobs:
+  generar-html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x' # La versión de Python que necesitas
+
+      - name: Instalar dependencias
+        run: |
+          pip install openai
+          # Instala otras dependencias necesarias
+
+      - name: Ejecutar script
+        run: python tu_script.py  # Reemplaza con el nombre de tu script principal
+
+      - name: Subir HTMLs a GitHub
+        uses: actions/upload-artifact@v3
+        with:
+          name: html-partidos
+          path: *.html # O la carpeta donde se guarden los HTMLs
+
+  subir-a-github:
+    needs: generar-html # Depende del job anterior
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Descargar HTMLs
+        uses: actions/download-artifact@v3
+        with:
+          name: html-partidos
+
+      - name: Configurar Git
+        run: |
+          git config --global user.name "tu-nombre-de-usuario-github"
+          git config --global user.email "tu-correo-github"
+
+      - name: Subir cambios
+        run: |
+          git add .
+          git commit -m "Actualizar HTMLs de partidos"
+          git push origin main # O la rama donde quieras subirlos
