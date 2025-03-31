@@ -2,124 +2,19 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Calendario de Partidos</title>
+  <title>Calendario de Partidos - FEB</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #fff8f0; color: #333; padding: 40px; max-width: 900px; margin: auto; }
+    body { font-family: Arial; max-width: 900px; margin: auto; padding: 40px; background: #fff8f0; }
     h1 { text-align: center; color: #d62828; }
-    .dia { background: #fcbf49; padding: 5px 10px; border-radius: 5px; margin: 5px; display: inline-block; cursor: pointer; }
-    .partido { background: #ffe8c2; padding: 10px; margin: 5px 0; border-radius: 5px; }
+    .partido { display: block; background: #fcbf49; margin: 10px 0; padding: 10px; border-radius: 5px; text-decoration: none; color: #000; font-weight: bold; }
+    .partido:hover { background: #f77f00; color: white; }
   </style>
 </head>
 <body>
-  <h1>📅 Calendario Interactivo de Partidos</h1>
-  <div id="dias"></div>
-  <div id="lista-partidos" class="partidos"></div>
-  <script>
-    const partidos = [
-  {
-    "fecha": "15/02/2025",
-    "hora": "19:00",
-    "local": "GRUPO ALEGA CANTABRIA",
-    "visitante": "AMICS CASTELLÓ",
-    "marcador": "",
-    "archivo": "15022025-grupo-alega-cantabria-vs-amics-castello.html"
-  },
-  {
-    "fecha": "22/03/2025",
-    "hora": "14:30",
-    "local": "SPAR GIRONA",
-    "visitante": "HOZONO GLOBAL JAIRIS",
-    "marcador": "",
-    "archivo": "22032025-spar-girona-vs-hozono-global-jairis.html"
-  },
-  {
-    "fecha": "22/03/2025",
-    "hora": "17:00",
-    "local": "PERFUMERIAS AVENIDA",
-    "visitante": "CASADEMONT ZARAGOZA",
-    "marcador": "",
-    "archivo": "22032025-perfumerias-avenida-vs-casademont-zaragoza.html"
-  },
-  {
-    "fecha": "21/03/2025",
-    "hora": "17:30",
-    "local": "PERFUMERIAS AVENIDA",
-    "visitante": "MOVISTAR ESTUDIANTES",
-    "marcador": "",
-    "archivo": "21032025-perfumerias-avenida-vs-movistar-estudiantes.html"
-  },
-  {
-    "fecha": "20/03/2025",
-    "hora": "18:30",
-    "local": "SPAR GIRONA",
-    "visitante": "LOINTEK GERNIKA BIZKAIA",
-    "marcador": "",
-    "archivo": "20032025-spar-girona-vs-lointek-gernika-bizkaia.html"
-  },
-  {
-    "fecha": "20/03/2025",
-    "hora": "09:30",
-    "local": "PERFUMERIAS AVENIDA OYRSA",
-    "visitante": "COMEPLASTIC ARASKI",
-    "marcador": "",
-    "archivo": "20032025-perfumerias-avenida-oyrsa-vs-comeplastic-araski.html"
-  },
-  {
-    "fecha": "23/03/2025",
-    "hora": "16:00",
-    "local": "HOZONO GLOBAL JAIRIS",
-    "visitante": "PERFUMERIAS AVENIDA",
-    "marcador": "",
-    "archivo": "23032025-hozono-global-jairis-vs-perfumerias-avenida.html"
-  },
-  {
-    "fecha": "20/03/2025",
-    "hora": "21:00",
-    "local": "VALENCIA B.C.",
-    "visitante": "HOZONO GLOBAL JAIRIS",
-    "marcador": "",
-    "archivo": "20032025-valencia-b.c.-vs-hozono-global-jairis.html"
-  },
-  {
-    "fecha": "20/03/2025",
-    "hora": "09:30",
-    "local": "MOVISTAR ESTUDIANTES \"A\"",
-    "visitante": "OSES CONSTRUCCION",
-    "marcador": "",
-    "archivo": "20032025-movistar-estudiantes-\"a\"-vs-oses-construccion.html"
-  },
-  {
-    "fecha": "21/03/2025",
-    "hora": "20:00",
-    "local": "CASADEMONT ZARAGOZA",
-    "visitante": "SPAR GRAN CANARIA",
-    "marcador": "",
-    "archivo": "21032025-casademont-zaragoza-vs-spar-gran-canaria.html"
-  }
-];
-    const partidosPorDia = {};
-    partidos.forEach(p => {
-      if (!partidosPorDia[p.fecha]) partidosPorDia[p.fecha] = [];
-      partidosPorDia[p.fecha].push(p);
-    });
-    const diasDiv = document.getElementById("dias");
-    const listaDiv = document.getElementById("lista-partidos");
-    Object.keys(partidosPorDia).sort().forEach(dia => {
-      const diaBtn = document.createElement("div");
-      diaBtn.className = "dia";
-      diaBtn.textContent = dia;
-      diaBtn.onclick = () => mostrarPartidosDelDia(dia);
-      diasDiv.appendChild(diaBtn);
-    });
-    function mostrarPartidosDelDia(dia) {
-      listaDiv.innerHTML = "";
-      partidosPorDia[dia].sort((a,b) => a.hora.localeCompare(b.hora)).forEach(p => {
-        const div = document.createElement("div");
-        div.className = "partido";
-        div.innerHTML = `<strong>${p.hora}</strong> - <a href="${p.archivo}">${p.local} ${p.marcador} ${p.visitante}</a>`;
-        listaDiv.appendChild(div);
-      });
-    }
-  </script>
+<h1>📅 Calendario de Partidos</h1>
+<div id="calendario">
+<a href="15022025-grupo-alega-cantabria-vs-amics-castelló.html" class="partido"><strong>15/02/2025 19:00</strong> – GRUPO ALEGA CANTABRIA vs AMICS CASTELLÓ (96 - 76)</a>
+
+</div>
 </body>
 </html>
